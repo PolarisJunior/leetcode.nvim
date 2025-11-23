@@ -105,7 +105,9 @@ function Runner:handle(submit)
 
         if item then
             if item._.success then
-                run_git_handler(question, body.typed_code)
+                if submit then
+                    run_git_handler(question, body.typed_code)
+                end
                 judge:success(item.status_msg)
             else
                 judge:error(item.status_msg)
